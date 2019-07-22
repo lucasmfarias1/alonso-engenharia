@@ -26,7 +26,11 @@
                 <tbody>
                     @foreach ($clientes as $cliente)
                         <tr>
-                            <td>{{ $cliente->razao_social }}</td>
+                            <td>
+                                <a href="/cliente/{{ $cliente->id }}">
+                                    {{ $cliente->razao_social }}
+                                </a>
+                            </td>
                             <td>{{ $cliente->nome_fantasia }}</td>
                             <td>{{ $cliente->cnpj }}</td>
                             <td>{{ $cliente->endereco }}</td>
@@ -36,8 +40,9 @@
                             <td>{{ $cliente->cpf }}</td>
                             <td>{{ $cliente->celular }}</td>
                             <td>
-                                <a href="/cliente/edit/{{ $cliente->id }}">
-                                    <strong>E</strong>
+                                <a href="/cliente/edit/{{ $cliente->id }}"
+                                    class="btn btn-sm btn-success">
+                                    <strong>Edit</strong>
                                 </a>
                             </td>
                         </tr>

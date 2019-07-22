@@ -1,4 +1,5 @@
 <?php
+use App\Http\Controllers\ClientesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,9 +23,19 @@ Route::get('/', 'ClientesController@index');
 Route::get('/cliente', 'ClientesController@index');
 Route::get('/cliente/edit/{cliente}', 'ClientesController@edit');
 Route::get('/cliente/create', 'ClientesController@create');
+Route::get('/cliente/{cliente}', 'ClientesController@show');
+Route::delete('/cliente/{cliente}', 'ClientesController@destroy');
+Route::patch('/cliente/{cliente}', 'ClientesController@update');
 Route::post('/cliente', 'ClientesController@store');
+
+// Propostas
+Route::get('/proposta', 'PropostasController@index');
+Route::get('/proposta/edit/{proposta}', 'PropostasController@edit');
+Route::get('/proposta/create', 'PropostasController@create');
+Route::delete('/proposta/{proposta}', 'PropostasController@destroy');
+Route::patch('/proposta/{proposta}', 'PropostasController@update');
+Route::post('/proposta', 'PropostasController@store');
+Route::get('/proposta/export/', 'PropostasController@export');
 
 // Auth
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
